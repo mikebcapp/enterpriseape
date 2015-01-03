@@ -77,4 +77,9 @@ Enterpriseape::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+  
+  # Suggested fix for Heroku user sign up error from Jordan H via stackoverflow
+  #  http://stackoverflow.com/questions/4114835/heroku-devise-missing-host-to-link-to-please-provide-host-parameter-or-set-d
+  
+  config.action_mailer.default_url_options = { :host => 'enterpriseape-mc.herokuapp.com' }
 end
