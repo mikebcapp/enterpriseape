@@ -82,4 +82,18 @@ Enterpriseape::Application.configure do
   #  http://stackoverflow.com/questions/4114835/heroku-devise-missing-host-to-link-to-please-provide-host-parameter-or-set-d
   
   config.action_mailer.default_url_options = { :host => 'enterpriseape-mc.herokuapp.com' }
+ 
+  #Add this below to fix error
+  
+  ActionMailer::Base.smtp_settings = {
+   :address => 'smtp.sendgrid.net',
+   :port => '587',
+   :authentication => 'plain',
+   :user_name => ENV['app30818038@heroku.com'],
+    :password => ENV['dcactc11'],
+   :domain => 'heroku.com'
+}
+ActionMailer::Base.delivery_method = :smtp
+  
+  
 end
